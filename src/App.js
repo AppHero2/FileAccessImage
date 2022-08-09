@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  
+  const MY_CLIENT_ID = "9i9ftsjkkrocnfx";
+  const MY_REDIRECT_URI = "http://localhost:3000/auth";
+
+  const handleOAuth2 = () => {
+    const newPageUrl = `https://www.dropbox.com/oauth2/authorize?client_id=${MY_CLIENT_ID}&redirect_uri=${MY_REDIRECT_URI}&response_type=code`;
+    window.open(newPageUrl, "_self");
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleOAuth2}>
+        OAuth 2  
+      </button>      
     </div>
   );
 }
